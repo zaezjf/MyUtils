@@ -6,6 +6,7 @@
 # Version    : python 3.9
 # Description:
 """
+import json
 import re
 
 
@@ -76,11 +77,13 @@ lll = [1, 9, 4, 33, 9, 7, 1, 6, 15, 18]
 # must = lambda must: "必选" if must == 1 else "非必选"
 #
 # print(must(0))
-t = {'mysql':{'ysapp':{'host':'10.213.40.118','port':3306,'user':'ysapp_boss','pwd':'12Fj2uix)iu'}}}
+t = {'mysql': {'ysapp': {'host': '10.213.40.118', 'port': 3306, 'user': 'ysapp_boss', 'pwd': '12Fj2uix)iu'}}}
 # sql = "INSERT INTO TEST_TB1(ID, NAME) VALUES(1, 'name_insert1')"
 # sql = "SELECT INTO TEST_TB1(ID, NAME) VALUES(1, 'name_insert1')"
 # sql = "UPDATE INTO TEST_TB1(ID, NAME) VALUES(1, 'name_insert1')"
 sql = "DELETE INTO TEST_TB1(ID, NAME) VALUES(1, 'name_insert1')"
+
+
 # print(str(t).replace('\'', '"').strip())
 # try:
 #     if not re.search(r"^UPDATE", sql, re.IGNORECASE) is None:
@@ -103,11 +106,14 @@ def sql_async_check(func):
         except Exception as e:
             raise e
 
-    return wraper
+    # return wraper
 
 
 @sql_async_check
 def test(sql):
     print("haha")
 
-test(sql)
+
+with open("D:\\00_pyprojects\\MyUtils\\utils\\module.json", encoding="UTF-8") as f:
+    json_content = json.load(f)
+print(json_content)

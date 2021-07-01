@@ -300,11 +300,11 @@ class DbBass:
 
 
 if __name__ == "__main__":
-    mongo_collection = None
+    # mongo_collection = None
 
     """mysql数据库调试数据"""
-    db_config_mysql = "db_type=mysql&db_client=10.213.40.118:3306&db_name=ysapp&db_userName=ysapp_boss&db_userPwd=12Fj2uix)iu"
-    db_func, db_sql_mysql = "insert", "INSERT INTO wbx_test(STUD_NAME,STUD_AGE,STUD_WEIGHT) VALUES('张三','18','90')"
+    # db_config_mysql = "db_type=mysql&db_client=10.213.40.118:3306&db_name=ysapp&db_userName=ysapp_boss&db_userPwd=12Fj2uix)iu"
+    # db_func, db_sql_mysql = "insert", "INSERT INTO wbx_test(STUD_NAME,STUD_AGE,STUD_WEIGHT) VALUES('张三','18','90')"
     # db_func, db_sql_mysql = "update", "UPDATE wbx_test SET STUD_AGE = '30' WHERE STUD_NAME = '张三'"
     # db_func, db_sql_mysql = "select", "SELECT * FROM wbx_test WHERE STUD_NAME = '张三'"
     # db_func, db_sql_mysql = "delete", "DELETE FROM wbx_test WHERE STUD_NAME = '张三'"
@@ -317,22 +317,22 @@ if __name__ == "__main__":
     # db_func, db_sql_oracle = "delete", "DELETE FROM WBXTEST WHERE NAME = 'NAME2'"
 
     """mongoDb数据库调试数据"""
-    # mongo_collection = 'credb'
+    mongo_collection = 'credb'
     # mongo_collection = 'mh_app_h5_use_stats'
-    # db_config_mongo = "db_type=mongo&db_client=10.213.40.58:27017&db_name=bottom&db_userName=bottomAdmin&db_userPwd=bottom1234567"
-    # db_func, db_sql_mysql = "insert", 'insert_one({"name":"name_insert"})'
-    # db_func, db_sql_mysql = "update", 'update_one({"name":"name_insert"},{"$set":{"name":"name_update"}})'
-    # db_func, db_sql_mysql = "select", 'find_one({"name":"name_update"})'
-    # db_func, db_sql_mysql = "delete", 'delete_one({"name":"name_update"})'
-    # db_func, db_sql_mysql = "insert", 'insert_many([{"name":"name_insert1"},{"name":"name_insert2"}])'
-    # db_func, db_sql_mysql = "update", 'update_many({"name": {"$regex":".*insert.*"}},{"$set":{"name":"name_update"}})'
-    # db_func, db_sql_mysql = "select", 'find({"name":"name_update"})'
-    # db_func, db_sql_mysql = "delete", 'delete_many({"name": {"$regex": ".*insert.*"}})'
+    db_config_mongo = "db_type=mongo&db_client=10.213.40.58:27017&db_name=bottom&db_userName=bottomAdmin&db_userPwd=bottom1234567"
+    # db_func, db_sql_mongo = "insert", 'insert_one({"name":"name_insert"})'
+    # db_func, db_sql_mongo = "update", 'update_one({"name":"name_insert"},{"$set":{"name":"name_update"}})'
+    db_func, db_sql_mongo = "select", 'find_one({"name":"name_update"})'
+    # db_func, db_sql_mongo = "delete", 'delete_one({"name":"name_update"})'
+    # db_func, db_sql_mongo = "insert", 'insert_many([{"name":"name_insert1"},{"name":"name_insert2"}])'
+    # db_func, db_sql_mongo = "update", 'update_many({"name": {"$regex":".*insert.*"}},{"$set":{"name":"name_update"}})'
+    # db_func, db_sql_mongo = "select", 'find({"name":"name_update"})'
+    # db_func, db_sql_mongo = "delete", 'delete_many({"name": {"$regex": ".*insert.*"}})'
 
     """调试配置选择"""
-    db_config, db_sql = db_config_mysql, db_sql_mysql
+    # db_config, db_sql = db_config_mysql, db_sql_mysql
     # db_config, db_sql = db_config_oracle, db_sql_oracle
-    # db_config, db_sql = db_config_mongo, db_sql_mongo
+    db_config, db_sql = db_config_mongo, db_sql_mongo
 
     db = DbBass(db_config)
     if db_func == "select":
